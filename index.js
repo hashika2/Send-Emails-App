@@ -3,13 +3,13 @@ const { google } = require("googleapis");
 const OAuth2 = google.auth.OAuth2;
 
 const oauth2Client = new OAuth2(
-    "57557651117-cva1kc0m1qtcdaurb8r3it2vnt3rrs0t.apps.googleusercontent.com", // ClientID
-    "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", // Client Secret
+   process.env.CLIENT_ID, // ClientID
+    process.env.SECRET_KEY, // Client Secret
     "https://developers.google.com/oauthplayground" // Redirect URL
 );
 
 oauth2Client.setCredentials({
-    refresh_token: "1//04g4zVh-c32j2CgYIARAAGAQSNwF-L9IrAqcD2b3_C0OPTheqrNQIlNrM2RKVnkh1cT1BNmcojUFGyQ6r59YHRKxf-Qm7KGvnxWM"
+    refresh_token: process.env.REFRESHH_TOKEN
 });
 const accessToken = oauth2Client.getAccessToken()
 
@@ -18,10 +18,10 @@ const main =()=>{
         service: "gmail",
         auth: {
              type: "OAuth2",
-             user: "m.g.hashikamaduranga@gmail.com", 
-             clientId: "57557651117-cva1kc0m1qtcdaurb8r3it2vnt3rrs0t.apps.googleusercontent.com",
-             clientSecret: "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",
-             refreshToken: "1//04g4zVh-c32j2CgYIARAAGAQSNwF-L9IrAqcD2b3_C0OPTheqrNQIlNrM2RKVnkh1cT1BNmcojUFGyQ6r59YHRKxf-Qm7KGvnxWM",
+             user: process.env.MY_EMAIL, 
+             clientId:  process.env.CLIENT_ID,
+             clientSecret: process.env.SECRET_KEY,
+             refreshToken: process.env.REFRESHH_TOKEN,
              accessToken: accessToken
         }
     });
