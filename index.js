@@ -27,7 +27,7 @@ const main =()=>{
     });
     
     const mailOptions = {
-        from: "m.g.hashikamaduranga@gmail.com",
+        from: process.env.MY_EMAIL,
         to: "hashika96.ebay@gmail.com",
         subject: "Hashika sent a message",
         generateTextFromHTML: true,

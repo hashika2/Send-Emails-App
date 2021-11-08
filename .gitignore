@@ -6,4 +6,4 @@
 /customer-immersion-v2/dist
 /node_modules
 /build
-/.env
+.env
